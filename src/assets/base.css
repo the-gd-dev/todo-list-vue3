@@ -1,0 +1,58 @@
+/* color palette from <https://github.com/vuejs/theme> */
+/* Crimson-Based Color Palette */
+:root {
+  /* Base Colors */
+  --base-color: #DC143C;       /* Crimson */
+  --dark-crimson: #A10E2A;     /* Darker Crimson */
+  --light-crimson: #FF5A76;    /* Lighter Crimson */
+  --soft-pink: #FFC0CB;        /* Soft Pink */
+  --deep-maroon: #800000;      /* Deep Maroon */
+
+  /* Grayscale */
+  --black: #000000;            /* Pure Black */
+  --dark-gray: #2E2E2E;        /* Dark Gray for Text */
+  --gray: #6E6E6E;             /* Medium Gray */
+  --light-gray: #D3D3D3;       /* Light Gray */
+  --white: #FFFFFF;            /* Pure White */
+
+  /* Background & Accent Colors */
+  --background-color: #F8E8EC; /* Light Rose Background */
+  --border-color: #B22234;     /* Muted Red for Borders */
+  --highlight-color: #FA8072;  /* Salmon Accent */
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
