@@ -1,29 +1,63 @@
-# todo-list
+# 📌 Todo List - Vue 3
 
-This template should help get you started developing with Vue 3 in Vite.
+### 🌟 Description
 
-## Recommended IDE Setup
+A **simple and interactive Todo List** built with **Vue 3** for learning purposes. This project helps in understanding Vue 3 concepts such as **reactivity, composition API, and component-based architecture**.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 🛠️ Tech Stack
 
-## Project Setup
+- **Vue 3** (Composition API)
+- **Vite** (for fast development)
+- **TailwindCSS** (for styling)
+- **Pinia** (State management)
+- **Local Storage API** (for saving tasks)
 
-```sh
+---
+
+## 📥 Installation & Setup
+
+1️⃣ Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/todo-list-vue3.git
+cd todo-list-vue3
+```
+
+2️⃣ Install dependencies:
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+3️⃣ Run the development server:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+4️⃣ Open in browser:
 
-```sh
-npm run build
 ```
+http://localhost:5173
+```
+
+---
+
+## 📸 Screenshots
+
+![Todo List UI](https://via.placeholder.com/800x400.png?text=Screenshot+Coming+Soon)
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! Feel free to **fork** and improve the project.
+
+---
+
+## 📜 License
+
+This project is open-source and available under the **MIT License**.
