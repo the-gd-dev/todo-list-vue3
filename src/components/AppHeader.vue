@@ -1,5 +1,6 @@
 <script setup>
 import store from "../store.js";
+import ThemeToggle from "./ThemeToggle.vue";
 </script>
 
 <template>
@@ -8,9 +9,7 @@ import store from "../store.js";
       <div class="inner-content">
         <div>
           <h1>Todo</h1>
-          <p>
-            Manage your tasks!
-          </p>
+          <p>Manage your tasks!</p>
         </div>
         <div class="user-options">
           <ul>
@@ -23,11 +22,18 @@ import store from "../store.js";
         </div>
       </div>
     </div>
+    <div class="theme-toggle">
+      <ThemeToggle />
+    </div>
   </header>
 </template>
 
 <style scoped>
-
+.theme-toggle {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 header {
   position: relative;
   z-index: 999;
