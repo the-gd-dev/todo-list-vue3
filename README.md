@@ -48,7 +48,7 @@ http://localhost:5173
 
 ## 📸 Screenshots
 
-![Todo List UI](https://via.placeholder.com/800x400.png?text=Screenshot+Coming+Soon)
+![Todo List UI](./src/assets//project-ss.png)
 
 ---
 
