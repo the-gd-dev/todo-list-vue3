@@ -18,7 +18,20 @@ const savedTodos = JSON.parse(localStorage.getItem("todos") || "[]");
 
 const store = reactive({
   showInput: false,
+  theme:
+    localStorage.getItem("theme") ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light"),
 
+  toggleTheme() {
+    this.theme = this.theme === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", this.theme);
+    document.documentElement.classList.toggle(
+      "dark-mode",
+      this.theme === "dark"
+    );
+  },
   setShowInput() {
     this.showInput = !this.showInput;
   },
