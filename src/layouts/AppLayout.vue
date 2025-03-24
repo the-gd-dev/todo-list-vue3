@@ -15,14 +15,14 @@ import AppHeader from "../components/AppHeader.vue";
 
 <style scoped>
 main {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 #content {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  height: 100%;
-  padding: 20px;
+  height: 100vh;
+  /* padding: 20px; */
 }
 </style>

@@ -17,6 +17,7 @@
 <style scoped>
 footer {
   position: relative;
+  z-index: 999;
 }
 
 .inner-content {
@@ -51,10 +52,10 @@ footer {
   bottom: -100px;
 
   &:hover {
-    height: 600px;
-    width: 600px;
-    right: -200px;
-    bottom: -200px;
+    height: 400px;
+    width: 400px;
+    right: -10%;
+    bottom: -20vh;
     box-shadow: rgba(211, 77, 0, 0.799) 1px 1px 50px;
   }
 

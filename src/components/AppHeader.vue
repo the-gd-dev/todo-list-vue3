@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup>
+import store from "../store.js";
+</script>
 
 <template>
   <header>
@@ -7,17 +9,15 @@
         <div>
           <h1>Todo</h1>
           <p>
-            Manage your tasks <br />
-            with a snap!
+            Manage your tasks!
           </p>
         </div>
         <div class="user-options">
           <ul>
-            <li
-              v-for="(item, index) in ['Todo List', 'Notes', 'Key Notes']"
-              :key="index"
-            >
-              <a href="/">{{ item }}</a>
+            <li>
+              <button type="button" @click="store.setShowInput">
+                Create Todo
+              </button>
             </li>
           </ul>
         </div>
@@ -27,8 +27,10 @@
 </template>
 
 <style scoped>
+
 header {
   position: relative;
+  z-index: 999;
 }
 
 .inner-content {
@@ -57,7 +59,13 @@ header {
   margin-bottom: 10px;
   text-align: left;
 }
-.user-options ul li a {
+.user-options ul li button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
   color: white;
   font-size: 20px;
   text-decoration: none;
@@ -82,10 +90,10 @@ header {
   top: -100px;
 
   &:hover {
-    height: 600px;
-    width: 600px;
-    left: -200px;
-    top: -200px;
+    height: 400px;
+    width: 400px;
+    left: -10%;
+    top: -20vh;
     box-shadow: var(--light-crimson) 1px 1px 50px;
   }
 
