@@ -14,41 +14,54 @@ const formatDate = (date) => {
   return new Date(date).toLocaleString("en-US", options).replace(",", "");
 };
 
+const savedTodos = JSON.parse(localStorage.getItem("todos") || "[]");
+
 const store = reactive({
   showInput: false,
+
   setShowInput() {
     this.showInput = !this.showInput;
   },
-  todos: [],
+
+  todos: savedTodos,
+
   addNewTodo(payload) {
-    this.todos.push({
+    const newTodo = {
       id: this.todos.length + 1,
       ...payload,
       todo_date_formatted: formatDate(payload.todo_date),
       isCompleted: false,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
-    });
+    };
+    this.todos.push(newTodo);
+    localStorage.setItem("todos", JSON.stringify(this.todos));
   },
-  completeTask(id) {
+
+  completeTodo(id) {
     this.todos = this.todos.map((item) => {
       if (item.id === id) {
         item.isCompleted = true;
       }
       return item;
     });
+    localStorage.setItem("todos", JSON.stringify(this.todos));
   },
+
   deleteTodo(id) {
-    this.todos = this.todos.filter((item) => item.id !== id);
+    const index = this.todos.findIndex((item) => item.id === id);
+    if (index !== -1) {
+      this.todos.splice(index, 1); // Mutates the array
+      localStorage.setItem("todos", JSON.stringify(this.todos));
+    }
   },
+
   updateTodo(id, payload) {
-    const updatedList = this.todos.map((item) => {
-      if (item.id === id) {
-        item = payload;
-      }
-      return item;
-    });
-    this.todos = updatedList;
+    const index = this.todos.findIndex((item) => item.id === id);
+    if (index !== -1) {
+      Object.assign(this.todos[index], payload);
+      localStorage.setItem("todos", JSON.stringify(this.todos));
+    }
   },
 });
 

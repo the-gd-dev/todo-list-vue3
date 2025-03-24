@@ -1,11 +1,14 @@
 <script setup>
 import { ref, computed } from "vue";
 import AppLayout from "./layouts/AppLayout.vue";
+import Todos from "./components/todos/Todos.vue";
+
 import store from "./store.js";
-window.document.title = "Welcome Vue3";
+window.document.title = "Todo Vue3";
 const title = ref("");
 const desc = ref("");
 const todo_date = ref("");
+const hasTodos = computed(() => store.todos.length > 0);
 function createNewTodo(e) {
   store.addNewTodo({
     title: title.value,
@@ -13,19 +16,14 @@ function createNewTodo(e) {
     todo_date: todo_date.value,
   });
 }
-function deleteTodoHandler(id) {
-  if (confirm("Are you sure ?")) {
-    store.deleteTodo(id);
-  }
-}
 </script>
 
 <template>
   <AppLayout>
     <div class="container">
-      <div class="form-container" v-if="store.showInput">
+      <div class="form-container" v-if="store.showInput || hasTodos">
         <div class="add-todo-form">
-          <form @submit="createNewTodo">
+          <form @submit.prevent="createNewTodo">
             <div class="row">
               <input required type="text" placeholder="Title" v-model="title" />
               <input
@@ -46,43 +44,7 @@ function deleteTodoHandler(id) {
         </div>
       </div>
       <div class="todos-container">
-        <div class="todos">
-          <div
-            :class="`todo ${todo.isCompleted ? 'completed' : ''}`"
-            v-for="(todo, key) in store.todos"
-            :key="key"
-          >
-            <div class="header">
-              <label>
-                <input
-                  type="checkbox"
-                  :value="todo.isCompleted === true"
-                  @change="store.completeTask(todo.id)"
-                />
-                Mark as completed
-              </label>
-              <div class="actions" v-if="!todo.isCompleted">
-                <a href="#" @click="deleteTodoHandler(todo.id)">Delete</a>
-              </div>
-            </div>
-
-            <h2>{{ todo.title }}</h2>
-
-            <p>{{ todo.desc }}</p>
-            <small> {{ todo.todo_date_formatted }} </small>
-            <div class="actions" v-if="!todo.isCompleted">
-              <a href="#">change content</a>
-              <a href="#">change date</a>
-            </div>
-          </div>
-        </div>
-        <div class="no-data" v-if="store.todos.length === 0">
-          <div class="content" >
-            <h1>No Todos Available.</h1>
-            <p>Create a new todo.</p>
-            <button type="button" @click="store.setShowInput">New Todo Item</button>
-          </div>
-        </div>
+        <Todos />
       </div>
     </div>
   </AppLayout>
@@ -181,11 +143,10 @@ function deleteTodoHandler(id) {
 .btn-container button.primary:hover {
   background: #8b0000;
 }
-
 .todos-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   align-items: center;
   background: #fff;
@@ -198,151 +159,4 @@ function deleteTodoHandler(id) {
   /* background-color: #dc143c; */
   padding: 20px;
 }
-
-.todos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  gap: 15px;
-}
-.todo.completed {
-  background: #f5f5f5;
-  border-left: 5px solid #5e5e5e;
-}
-.todo.completed h2 {
-  color: #5e5e5e;
-}
-.todo.completed label,
-.todo.completed input[type="checkbox"] {
-  accent-color: #5e5e5e;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-.todo {
-  width: 325px;
-  background: #f8d7da; /* Light crimson shade */
-  padding: 16px;
-  border-radius: 12px;
-  border-left: 5px solid #b22222; /* Darker crimson accent */
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.todo:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Checkbox Styling */
-.todo .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: var(--deep-maroon) solid 1px;
-  padding-bottom: 8px;
-}
-.todo label {
-  display: flex;
-  align-items: center;
-  font-size: 1rem;
-  font-weight: 500;
-  gap: 8px;
-
-  cursor: pointer;
-}
-
-.todo input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: #b22222;
-  cursor: pointer;
-}
-
-/* Title Styling */
-.todo h2 {
-  margin: 0;
-  padding: 0;
-  margin-top: 8px;
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #b22222; /* Deep crimson */
-}
-
-/* Paragraph */
-.todo p {
-  font-size: 1rem;
-  color: #333;
-}
-
-/* Date Styling */
-.todo small {
-  margin-top: 1em;
-  color: #666;
-  font-size: 0.85rem;
-  display: block;
-}
-
-/* Actions Styling */
-.actions {
-  display: flex;
-  justify-content: flex-start;
-  gap: 15px;
-}
-
-.actions a {
-  text-decoration: none;
-  color: #b22222;
-  font-weight: 600;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.actions a:hover {
-  color: #7a0e18;
-  transform: scale(1.05);
-}
-
-.no-data {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.no-data .content {
-  text-align: center;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-}
-
-.no-data .content h1 {
-  color: #b22222; /* Dark crimson */
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.no-data .content p {
-  color: #8b0000; /* Deep crimson */
-  font-size: 16px;
-}
-
-.no-data .content button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  background: crimson; /* Primary button color */
-  color: white;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.no-data .content button:hover {
-  background: #a50021; /* Darker crimson on hover */
-}
-
 </style>
