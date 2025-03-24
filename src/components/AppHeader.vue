@@ -11,7 +11,7 @@ import ThemeToggle from "./ThemeToggle.vue";
           <h1>Todo</h1>
           <p>Manage your tasks!</p>
         </div>
-        <div class="user-options">
+        <!-- <div class="user-options">
           <ul>
             <li>
               <button type="button" @click="store.setShowInput">
@@ -19,7 +19,7 @@ import ThemeToggle from "./ThemeToggle.vue";
               </button>
             </li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="theme-toggle">
@@ -43,7 +43,7 @@ header {
   transition: all 0.3s ease-in-out;
   text-align: center;
   height: 100%;
-  color: white;
+  color: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -86,7 +86,7 @@ header {
   padding-top: 200px;
   transition: all 0.3s ease-in-out;
   color: white;
-  background-color: var(--base-color);
+  background-color: var(--crimson-base);
   position: absolute;
   padding: 16px;
   border-radius: 50%;
@@ -100,7 +100,7 @@ header {
     width: 400px;
     left: -10%;
     top: -20vh;
-    box-shadow: var(--light-crimson) 1px 1px 50px;
+    box-shadow: var(--crimson-light) 1px 1px 50px;
   }
 
   &:hover .inner-content .user-options {

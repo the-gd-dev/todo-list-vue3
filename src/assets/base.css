@@ -1,26 +1,151 @@
-/* color palette from <https://github.com/vuejs/theme> */
-/* Crimson-Based Color Palette */
+/* Light Mode */
 :root {
-  /* Base Colors */
-  --base-color: #DC143C;       /* Crimson */
-  --dark-crimson: #A10E2A;     /* Darker Crimson */
-  --light-crimson: #FF5A76;    /* Lighter Crimson */
-  --soft-pink: #FFC0CB;        /* Soft Pink */
-  --deep-maroon: #800000;      /* Deep Maroon */
+  /* Crimson */
+  --crimson-lighter: #ffc1c1; /* Lighter */
+  --crimson-light: #ff6b81; /* Light */
+  --crimson-base: #dc143c; /* Base */
+  --crimson-dark: #a30d2d; /* Dark */
+  --crimson-darker: #800020; /* Darker */
+  --crimson-darkest: #4a0d14; /* Darkest */
 
-  /* Grayscale */
-  --black: #000000;            /* Pure Black */
-  --dark-gray: #2E2E2E;        /* Dark Gray for Text */
-  --gray: #6E6E6E;             /* Medium Gray */
-  --light-gray: #D3D3D3;       /* Light Gray */
-  --white: #FFFFFF;            /* Pure White */
+  /* Success (Green) */
+  --success-lighter: #c8facc; /* Lighter */
+  --success-light: #7ddf7d; /* Light */
+  --success-base: #28a745; /* Base */
+  --success-dark: #1e7e34; /* Dark */
+  --success-darker: #155724; /* Darker */
+  --success-darkest: #0b3a14; /* Darkest */
 
-  /* Background & Accent Colors */
-  --background-color: #F8E8EC; /* Light Rose Background */
-  --border-color: #B22234;     /* Muted Red for Borders */
-  --highlight-color: #FA8072;  /* Salmon Accent */
+  /* Warning (Yellow/Orange) */
+  --warning-lighter: #fff3cd; /* Lighter */
+  --warning-light: #ffd56b; /* Light */
+  --warning-base: #ffc107; /* Base */
+  --warning-dark: #e0a800; /* Dark */
+  --warning-darker: #b08900; /* Darker */
+  --warning-darkest: #705600; /* Darkest */
+
+  /* Danger (Red) */
+  --danger-lighter: #f8d7da; /* Lighter */
+  --danger-light: #ff6b6b; /* Light */
+  --danger-base: #dc3545; /* Base */
+  --danger-dark: #a71d2a; /* Dark */
+  --danger-darker: #821624; /* Darker */
+  --danger-darkest: #500d14; /* Darkest */
+
+  /* Info (Blue) */
+  --info-lighter: #d1ecf1; /* Lighter */
+  --info-light: #6bcbff; /* Light */
+  --info-base: #17a2b8; /* Base */
+  --info-dark: #117a8b; /* Dark */
+  --info-darker: #0b5a6d; /* Darker */
+  --info-darkest: #073b4c; /* Darkest */
+
+  /* Gray */
+  --gray-lighter: #f8f9fa; /* Lighter */
+  --gray-light: #e9ecef; /* Light */
+  --gray-base: #6c757d; /* Base */
+  --gray-dark: #495057; /* Dark */
+  --gray-darker: #343a40; /* Darker */
+  --gray-darkest: #212529; /* Darkest */
+
+  /* Backgrounds & Text */
+  --bg-color: #ffffff; /* White */
+  --text-color: #333; /* Dark gray */
+  --border-left-color: var(--gray-dark);
+  --accent-color: var(--crimson-base);
+  --hover-color: var(--crimson-dark);
+  --input-border: var(--gray-light);
+  --input-bg: #f8f8f8; /* Light gray */
+  --input-focus-border: var(--crimson-light);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --container-bg: #f9f9f9;
+  --form-bg: #ffffff;
+  --btn-primary-bg: var(--crimson-base);
+  --btn-primary-hover-bg: var(--crimson-dark);
+  --btn-text: #fff;
+  --btn-discard-bg: var(--gray-light);
+  --btn-discard-text: var(--gray-dark);
+  --completed-bg: var(--success-light);
+  --completed-border: var(--success-dark);
+  --completed-text: var(--success-darker);
+  --todo-text-color: var(--gray-dark);
+  --date-text-color: var(--gray-base);
 }
 
+/* Dark Mode */
+.dark-mode {
+  /* Crimson */
+  --crimson-lighter: #4a0d14; /* Darkest */
+  --crimson-light: #800020; /* Darker */
+  --crimson-base: #a30d2d; /* Dark */
+  --crimson-dark: #dc143c; /* Base */
+  --crimson-darker: #ff6b81; /* Light */
+  --crimson-darkest: #ffc1c1; /* Lighter */
+
+  /* Success (Green) */
+  --success-lighter: #0b3a14; /* Darkest */
+  --success-light: #155724; /* Darker */
+  --success-base: #1e7e34; /* Dark */
+  --success-dark: #28a745; /* Base */
+  --success-darker: #7ddf7d; /* Light */
+  --success-darkest: #c8facc; /* Lighter */
+
+  /* Warning (Yellow/Orange) */
+  --warning-lighter: #705600; /* Darkest */
+  --warning-light: #b08900; /* Darker */
+  --warning-base: #e0a800; /* Dark */
+  --warning-dark: #ffc107; /* Base */
+  --warning-darker: #ffd56b; /* Light */
+  --warning-darkest: #fff3cd; /* Lighter */
+
+  /* Danger (Red) */
+  --danger-lighter: #500d14; /* Darkest */
+  --danger-light: #821624; /* Darker */
+  --danger-base: #a71d2a; /* Dark */
+  --danger-dark: #dc3545; /* Base */
+  --danger-darker: #ff6b6b; /* Light */
+  --danger-darkest: #f8d7da; /* Lighter */
+
+  /* Info (Blue) */
+  --info-lighter: #073b4c; /* Darkest */
+  --info-light: #0b5a6d; /* Darker */
+  --info-base: #117a8b; /* Dark */
+  --info-dark: #17a2b8; /* Base */
+  --info-darker: #6bcbff; /* Light */
+  --info-darkest: #d1ecf1; /* Lighter */
+
+  /* Gray */
+  --gray-lighter: #212529; /* Darkest */
+  --gray-light: #343a40; /* Darker */
+  --gray-base: #495057; /* Dark */
+  --gray-dark: #6c757d; /* Base */
+  --gray-darker: #e9ecef; /* Light */
+  --gray-darkest: #f8f9fa; /* Lighter */
+
+  /* Backgrounds & Text */
+  --bg-color: #121212; /* Deep black */
+  --text-color: #eaeaea; /* Light gray */
+  --border-left-color: var(--gray-light);
+  --accent-color: var(--crimson-base);
+  --hover-color: var(--crimson-light);
+  --input-border: var(--gray-base);
+  --input-bg: #1e1e1e; /* Dark gray */
+  --input-focus-border: var(--crimson-light);
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --container-bg: #181818;
+  --form-bg: #222;
+  --btn-primary-bg: var(--crimson-base);
+  --btn-primary-hover-bg: var(--crimson-dark);
+  --btn-text: #fff;
+  --btn-discard-bg: var(--gray-base);
+  --btn-discard-text: var(--gray-darkest);
+  --completed-bg: var(--success-light);
+  --completed-border: var(--success-dark);
+  --completed-text: var(--success-darker);
+  --todo-text-color: var(--gray-light);
+  --date-text-color: var(--gray-base);
+  background-color: var(--bg-color);
+}
 
 *,
 *::before,
@@ -35,8 +160,9 @@ body {
   min-height: 100vh;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

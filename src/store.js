@@ -25,8 +25,9 @@ const store = reactive({
       : "light"),
 
   toggleTheme() {
-    this.theme = this.theme === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", this.theme);
+    const updatedTheme = this.theme === "dark" ? "light" : "dark";
+    this.theme = updatedTheme;
+    localStorage.setItem("theme", updatedTheme);
     document.documentElement.classList.toggle(
       "dark-mode",
       this.theme === "dark"

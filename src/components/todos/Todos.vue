@@ -45,20 +45,20 @@ const deleteTodoHandler = (id) => {
 
 .no-data .content {
   text-align: center;
-  background: white;
+  background: var(--bg-color);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
 }
 
 .no-data .content h1 {
-  color: #b22222; /* Dark crimson */
+  color: var(--crimson-dark); /* Dark crimson */
   font-size: 24px;
   margin-bottom: 10px;
 }
 
 .no-data .content p {
-  color: #8b0000; /* Deep crimson */
+  color: var(--crimson-darkest); /* Deep crimson */
   font-size: 16px;
 }
 
@@ -66,7 +66,7 @@ const deleteTodoHandler = (id) => {
   margin-top: 15px;
   padding: 10px 20px;
   border: none;
-  background: crimson; /* Primary button color */
+  background: var(--crimson-base); /* Primary button color */
   color: white;
   font-size: 16px;
   border-radius: 5px;
@@ -75,6 +75,6 @@ const deleteTodoHandler = (id) => {
 }
 
 .no-data .content button:hover {
-  background: #a50021; /* Darker crimson on hover */
+  background: var(--crimson-dark); /* Darker crimson on hover */
 }
 </style>

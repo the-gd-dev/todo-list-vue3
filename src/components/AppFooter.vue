@@ -42,7 +42,7 @@ footer {
   padding-bottom: 200px;
   transition: all 0.3s ease-in-out;
   color: white;
-  background-color: crimson;
+  background-color: var(--crimson-base);
   position: absolute;
   padding: 16px;
   border-radius: 50%;
@@ -56,7 +56,7 @@ footer {
     width: 400px;
     right: -10%;
     bottom: -20vh;
-    box-shadow: rgba(211, 77, 0, 0.799) 1px 1px 50px;
+    box-shadow: var(--crimson-light) 1px 1px 50px;
   }
 
   &:hover .inner-content .company-info {

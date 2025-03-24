@@ -61,10 +61,10 @@ function createNewTodo(e) {
   align-items: center;
 }
 .form-container {
-  background: #ffe6e6; /* Soft pinkish background */
+  background: var(--crimson-lighter); /* Soft pinkish background */
   padding: 20px;
   border-radius: 12px;
-  border: 2px solid #b22222;
+  border: 2px solid var(--crimson-base);
   max-width: 420px;
   margin: 30px auto;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
@@ -72,7 +72,7 @@ function createNewTodo(e) {
 
 .form-container h3 {
   font-size: 1.25rem;
-  color: #b22222;
+  color: var(--crimson-light);
   text-align: justify;
   font-weight: 500;
   margin-bottom: 15px;
@@ -87,7 +87,8 @@ function createNewTodo(e) {
   width: 100%;
   padding: 10px;
   margin-bottom: 12px;
-  border: 1px solid #b22222;
+  border: none;
+  /* border: 1px solid var(--crimson-light); */
   border-radius: 6px;
   font-size: 1rem;
   transition: border 0.2s ease;
@@ -96,7 +97,7 @@ function createNewTodo(e) {
 
 .add-todo-form input:focus,
 .add-todo-form textarea:focus {
-  border-color: #8b0000;
+  /* border-color: var(--crimson-dark); */
   outline: none;
 }
 
@@ -130,13 +131,13 @@ function createNewTodo(e) {
 }
 
 .btn-container button.primary {
-  background: var(--base-color);
-  color: white;
+  background: var(--btn-primary-bg);
+  color: var(--btn-text);
 }
 
 .btn-container button.discard {
-  background: var(--white);
-  color: var(--dark-gray);
+  background: var(--btn-discard-bg);
+  color: var(--btn-discard-text);
   border: #dbdbdb solid 1px;
 }
 
@@ -149,8 +150,8 @@ function createNewTodo(e) {
   justify-content: flex-start;
   align-items: center;
   align-items: center;
-  background: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: var(--bg-white);
+  box-shadow: 0 5px 15px var(--shadow-color);
   padding: 20px;
   border-radius: 12px;
   height: 100vh;

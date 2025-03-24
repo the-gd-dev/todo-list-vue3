@@ -63,8 +63,8 @@ watchEffect(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: white;
-  border: #202020 solid 1px;
+  background-color: var(--bg-color);;
+  border: var(--gray-darkest) solid 1px;
   transition: 0.4s ease-in-out;
   border-radius: 30px;
   display: flex;
@@ -86,7 +86,7 @@ watchEffect(() => {
 }
 
 input:checked + .slider::before {
-  background-color: white;
+  background-color: var(--gray-darkest);
 }
 
 input:checked + .slider {
