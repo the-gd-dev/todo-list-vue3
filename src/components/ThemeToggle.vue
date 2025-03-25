@@ -1,25 +1,3 @@
-<template>
-  <label class="toggle-switch">
-    <input type="checkbox" :checked="isDarkMode" @change="toggleDarkMode" />
-    <span class="slider">
-      <span class="icon">
-        <svg v-if="isDarkMode" class="moon" viewBox="0 0 24 24">
-          <path
-            fill="white"
-            d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 4.23,16.13A10,10 0 0,0 12,14A10,10 0 0,0 12,2Z"
-          />
-        </svg>
-        <svg v-else class="sun" viewBox="0 0 24 24">
-          <path
-            fill="yellow"
-            d="M12,4.54A1.46,1.46 0 0,1 13.46,6A1.46,1.46 0 0,1 12,7.46A1.46,1.46 0 0,1 10.54,6A1.46,1.46 0 0,1 12,4.54M5.34,7.05L6.75,8.46L5.34,9.88L3.93,8.46L5.34,7.05M12,18.54A1.46,1.46 0 0,1 13.46,20A1.46,1.46 0 0,1 12,21.46A1.46,1.46 0 0,1 10.54,20A1.46,1.46 0 0,1 12,18.54M18.66,7.05L20.07,8.46L18.66,9.88L17.25,8.46L18.66,7.05M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-          />
-        </svg>
-      </span>
-    </span>
-  </label>
-</template>
-
 <script setup>
 import { computed, watchEffect } from "vue";
 import store from "../store.js";
@@ -42,6 +20,38 @@ watchEffect(() => {
 });
 </script>
 
+<template>
+  <label class="toggle-switch">
+    <input type="checkbox" :checked="isDarkMode" @change="toggleDarkMode" />
+    <span class="slider">
+      <span class="icon">
+        <!-- Moon Icon (Sharp-Edged) -->
+        <svg
+          class="moon"
+          viewBox="0 0 24 24"
+          height="15"
+          width="15"
+          v-if="isDarkMode"
+        >
+          <path
+            fill="#ffb600"
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c2.67 0 5.11-1.05 7-2.75a8 8 0 0 1-7-8 8 8 0 0 1 7-8C17.11 3.05 14.67 2 12 2z"
+          />
+        </svg>
+
+        <!-- Sun Icon -->
+        <svg class="sun" viewBox="0 0 24 24" height="24" width="24" v-else>
+          <circle fill="#ffb600" cx="12" cy="12" r="5" />
+          <path
+            fill="#ffb600"
+            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+          />
+        </svg>
+      </span>
+    </span>
+  </label>
+</template>
+
 <style scoped>
 .toggle-switch {
   position: relative;
@@ -63,13 +73,13 @@ watchEffect(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--bg-color);;
+  background-color: var(--bg-color);
   border: var(--gray-darkest) solid 1px;
   transition: 0.4s ease-in-out;
   border-radius: 30px;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   padding: 5px;
 }
 
@@ -80,18 +90,36 @@ watchEffect(() => {
   width: 24px;
   left: 3px;
   bottom: 2px;
-  background-color: #202020;
+  background-color: var(--gray-darkest);
   transition: 0.4s ease-in-out;
   border-radius: 50%;
 }
 
-input:checked + .slider::before {
-  background-color: var(--gray-darkest);
+.icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 40%;
+  transform: translateY(-45%);
+  transition: all 0.4s ease-in-out;
+}
+
+.sun {
+  transform: translateX(-2px);
+}
+
+.moon {
+  transform: translateX(35px);
+}
+
+/* input:checked + .slider::before {
+  background-color: var(--gray-light);
+  
 }
 
 input:checked + .slider {
-  background-color: #202020;
-}
+  background-color: var(--gray-darkest);
+} */
 
 input:checked + .slider:before {
   transform: translateX(30px);
